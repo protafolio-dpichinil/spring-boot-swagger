@@ -1,7 +1,9 @@
 package cl.dpichinil.test.springbootswagger.controller;
 
 import cl.dpichinil.test.springbootswagger.dto.OperandosDto;
+import cl.dpichinil.test.springbootswagger.dto.ResponseDto;
 import cl.dpichinil.test.springbootswagger.service.CalculatorService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,22 +19,22 @@ public class CalculatorController {
     }
 
     @PostMapping("sum")
-    public int sum(@RequestBody OperandosDto operandosDto){
+    public ResponseEntity<ResponseDto> sum(@RequestBody OperandosDto operandosDto){
         return calculatorService.sum(operandosDto);
     }
 
     @PostMapping("subtraction")
-    public int subtraction(@RequestBody OperandosDto operandosDto){
+    public ResponseEntity<ResponseDto> subtraction(@RequestBody OperandosDto operandosDto){
         return calculatorService.subtraction(operandosDto);
     }
 
     @PostMapping("multiply")
-    public int multiply(@RequestBody OperandosDto operandosDto){
+    public ResponseEntity<ResponseDto> multiply(@RequestBody OperandosDto operandosDto){
         return calculatorService.multiply(operandosDto);
     }
 
     @PostMapping("divide")
-    public int divide(@RequestBody OperandosDto operandosDto){
+    public ResponseEntity<ResponseDto> divide(@RequestBody OperandosDto operandosDto){
         return calculatorService.divide(operandosDto);
     }
 }
